@@ -16,7 +16,7 @@ namespace DotNetService.Clients
             var serviceContext = serviceProvider.GetService<IIOServiceContext>();
             
             // So we use it to configure the base url for our core commerce api client
-            var baseUri = $"https://vtexid.vtexcommercestable.com.br";
+            var baseUri = "https://vtexid.vtexcommercestable.com.br";
                 
             if (!Uri.TryCreate($"{baseUri}", UriKind.Absolute, out var uri))
                 throw new Exception($"Invalid Vtex baseUri: {baseUri}");

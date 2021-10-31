@@ -1,8 +1,9 @@
+using System;
+
 namespace DotNetService.Models
 {
     public class Product
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public Boolean Success { get; set; }
     }
 }

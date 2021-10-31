@@ -5,9 +5,8 @@ namespace DotNetService.Models
 {
     public class TaggedProduct
     {
-        public int Id { get; }
-        public string Name { get;}
+        public Boolean Success { get; }
 
-        public TaggedProduct(Product product) => (Id, Name) = (1, "hola");
+        public TaggedProduct(Product product) => (Success) = (true);
     }
 }

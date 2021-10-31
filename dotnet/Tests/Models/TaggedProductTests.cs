@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DotNetService.Models;
@@ -31,13 +32,12 @@ namespace DotNetService.Tests.Models
 
         // We set the TestCaseSource as the name of method which provides data for testing.
         [Test, TestCaseSource(nameof(TaggedProductProvider))]
-        public void Tags_ShouldGenerateTags_WhenNameIsValid(int id, string name, string[] expectedTags)
+        public void Tags_ShouldGenerateTags_WhenNameIsValid(Boolean status, string[] expectedTags)
         {
             // Set up
             var taggedProduct = new TaggedProduct(new Product
             {
-                Id = id,
-                Name = name
+                Success = status,
             });
             
             // Assert
@@ -50,8 +50,7 @@ namespace DotNetService.Tests.Models
         {
             var taggedProduct = new TaggedProduct(new Product
             {
-                Id = 1,
-                Name = null
+                Success = true
             });
 
             Assert.IsEmpty(taggedProduct.Tags);
@@ -62,13 +61,11 @@ namespace DotNetService.Tests.Models
         {
             var product = new Product
             {
-                Id = 1,
-                Name = "My Product"
+                Success = true,
             };
 
             var taggedProduct = new TaggedProduct(product);
-            Assert.AreEqual(product.Id, taggedProduct.Id);
-            Assert.AreEqual(product.Name, taggedProduct.Name);
+            Assert.AreEqual(product.Success, taggedProduct.Success);
         }
     }
 }

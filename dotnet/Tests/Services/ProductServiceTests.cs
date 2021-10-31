@@ -34,8 +34,7 @@ namespace DotNetService.Tests.Services
             productRepository.Setup(repo => repo.GetProduct(It.IsAny<int>()))
                 .ReturnsAsync(new Product
                 {
-                    Id = 1,
-                    Name = "My Product"
+                    Success = true
                 });
             
             // Act
